@@ -20,7 +20,7 @@ const App = () => {
       <input type="number" value={n1} onChange={modificar} />+
       <input type="number" value={n2} onChange={modificar2}/>=
       <input type="number" value={resultado}readOnly />
-      <button onClick={sumar}>sumar</button>
+      <button onClick={sumar}>Sumar</button>
     </div>
   );
 };
