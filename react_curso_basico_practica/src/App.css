@@ -28,3 +28,17 @@ button{
 .span2{
   color: aqua;
 }
+.label{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+input{
+  width: 20rem;
+}
+.box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

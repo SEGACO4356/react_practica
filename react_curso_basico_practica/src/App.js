@@ -2,37 +2,64 @@ import React, { useState } from "react";
 import "./App.css";
 
 const App = () => {
-
-  const rey=[
+  const plata = [
     {
-    nombre: "Pirri",
-    aficion: "Sisa",
-    },{
-      nombre: "nombre2",
-      aficion: "nosesabe2",
-    },{
-      nombre: 
-      "nombre3",
-      aficion: "nosesabe3",
+      moneda: "euro",
+      cambio: 1,
+    },
+    {
+      moneda: "peso colombiano",
+      cambio: 5248.08,
+    },
+    {
+      moneda: "peso argentino",
+      cambio: 206,
+    },
+    {
+      moneda: "peso mexicano",
+      cambio: 19,
+    },
+  ];
+
+  
+  const [cantidad, setCantidad] = useState(0);
+  const [resultado1, setResultado1] = useState(0);
+  const [resultado2, setResultado2] = useState(0);
+  const [resultado3, setResultado3] = useState(0);
+
+    const modificar=(e)=>{
+      setCantidad(e.target.value);
+      setResultado1(e.target.value*plata[1].cambio)
+      setResultado2(e.target.value*plata[2].cambio)
+      setResultado3(e.target.value*plata[3].cambio)
     }
-  ]
-  const [contador, setContador] = useState(0);
-  const [mensaje, SetMensaje] = useState();
- const cambio = ()=>{
-  setContador(contador+1);
-  if (contador+1 >= rey.length) {
-      setContador(0);
-  }
-  SetMensaje(<h2>Solo <span className="span">{rey[contador].nombre}</span>
-  Si <span className="span2">{rey[contador].aficion}</span></h2>)
- }
 
 
   return (
-   <>
-   <button onClick={cambio}>Pase</button>
-   <div>{mensaje}</div>
-   </>
+    <>
+      <div className="box">
+        <label className="label" htmlFor="a">
+          {plata[0].moneda}
+        </label>
+        <input className="input" id="a" type="number" value={cantidad} onChange={modificar}></input>
+
+        <label className="label" htmlFor="a1">
+          {plata[1].moneda}
+        </label>
+         <input className="input"  id="a1" type="number" value={resultado1} onChange={modificar}></input>
+       
+        <label className="label" htmlFor="a2">
+          {plata[2].moneda}
+        </label>
+        <input className="input"  id="a2" type="number" value={resultado2} onChange={modificar}></input>
+
+        <label className="label" htmlFor="a3">
+          {plata[3].moneda}
+        </label>
+        <input className="input" id="a3" type="number" value={resultado3} onChange={modificar}></input>
+        
+      </div>
+    </>
   );
 };
 
